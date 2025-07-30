@@ -1,7 +1,7 @@
 FROM node:22
 
 # Install packages
-RUN apt-get update && apt-get install -y git curl wget
+RUN apt-get update && apt-get install -y git curl wget jq
 
 
 COPY ./run.sh /run.sh

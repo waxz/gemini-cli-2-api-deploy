@@ -9,11 +9,13 @@ cat << EOF | tee /tmp/Caddyfile
 proxy /ai localhost:3000
 proxy /auth localhost:8085
 EOF
-cat << EOF | tee /tmp/config.json
-${CONFIG}
-EOF
+
 # Start the Node.js application
 git clone https://github.com/waxz/Gemini-CLI-2-API.git /tmp/Gemini-CLI-2-API
+cat << EOF | tee /tmp/Gemini-CLI-2-API/config.json
+${CONFIG}
+EOF
+
 cd /tmp/Gemini-CLI-2-API && npm install && npm run start
 # /tmp/caddy/caddy run --config /tmp/Caddyfile &
 
