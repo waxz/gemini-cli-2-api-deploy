@@ -16,6 +16,10 @@ cat << EOF | tee /tmp/Gemini-CLI-2-API/config.json
 ${CONFIG}
 EOF
 
-cd /tmp/Gemini-CLI-2-API && npm install && npm run start
+cd /tmp/Gemini-CLI-2-API && npm install && npm run start&
 # /tmp/caddy/caddy run --config /tmp/Caddyfile &
+MAIN_PID=$!
+
+# Wait for Open WebUI process
+wait $MAIN_PID
 
