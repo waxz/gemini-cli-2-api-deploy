@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y git curl wget jq
 
 COPY ./run.sh /run.sh
 COPY ./add_bash_util.sh /add_bash_util.sh
+COPY ./Caddyfile /Caddyfile
 # Expose ports
 
 EXPOSE 7860

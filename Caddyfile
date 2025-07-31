@@ -1,0 +1,8 @@
+:7860 {
+	handle_path /8085/* {
+		reverse_proxy localhost:8085
+	}
+	# Serve your API, stripping the /api prefix
+	reverse_proxy localhost:3000
+
+}

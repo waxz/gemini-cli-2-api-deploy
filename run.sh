@@ -5,10 +5,6 @@ gh_install caddyserver/caddy linux_amd64.tar.gz /tmp/caddy.tar.gz
 mkdir -p /tmp/caddy
 tar -xzf /tmp/caddy.tar.gz -C /tmp/caddy
 
-cat << EOF | tee /tmp/Caddyfile 
-proxy /ai localhost:3000
-proxy /auth localhost:8085
-EOF
 
 # Start the Node.js application
 git clone https://github.com/waxz/Gemini-CLI-2-API.git /tmp/Gemini-CLI-2-API
@@ -17,9 +13,9 @@ ${CONFIG}
 EOF
 
 cd /tmp/Gemini-CLI-2-API && npm install && npm run start&
-# /tmp/caddy/caddy run --config /tmp/Caddyfile &
+/tmp/caddy/caddy run --config /Caddyfile &
 MAIN_PID=$!
 
-# Wait for Open WebUI process
+# Wait for caddy process
 wait $MAIN_PID
 
