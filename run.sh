@@ -32,7 +32,7 @@ cat << EOF | tee /tmp/gemini_oauth_creds.json
   "expiry_date": 1753880406425
 }
 EOF
-cd /tmp/Gemini-CLI-2-API && npm install && npm run start&
+cd /tmp/Gemini-CLI-2-API && npm install && node src/api-server.js &
 /tmp/caddy/caddy run --config /Caddyfile &
 MAIN_PID=$!
 
